@@ -1,1 +1,1 @@
-from pydesktime.desktime import Desktime
+from pydesktime.desktime import DeskTime
