@@ -16,7 +16,7 @@ requires = [
 ]
 
 setup(name='pydesktime',
-      version='0.1.1',
+      version='0.1.2',
       description='Module to communicate with Desktime API',
       long_description=DESCRIPTION,
       classifiers=[
