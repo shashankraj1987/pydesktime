@@ -34,21 +34,24 @@ class DeskTime(object):
             return data
         return None
 
-    def getMonth(self, year, month):
+    def getMonth(self, year, month, with_weekends=False):
         monthrange = calendar.monthrange(year, month)
         today = datetime.datetime.now().date()
         data = []
         resdata = {}
-        for dayindex in range(*monthrange):
+        for dayindex in range(monthrange[1]):
             day = dayindex + 1
             date = datetime.date(year, month, day)
             if date > today and date.year == today.year and today.month == date.month:
                 continue
             elif date > today:
                 return None
-            if date.weekday() in (5, 6):
+            if not with_weekends and date.weekday() in (5, 6):
                 continue
             data.append(self.getAllDataForDate(date))
         for elem in data:
             resdata[elem.get('date')] = elem.get('employees')
         return data
+
+    def getEmployee(self, employee_id):
+        raise(NotImplementedError)
